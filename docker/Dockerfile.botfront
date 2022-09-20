@@ -51,6 +51,8 @@ RUN python -m venv /opt/venv && \
 # spacy will be install during poetry install
 #  pip install --no-cache-dir spacy && \
 RUN . /opt/venv/bin/activate && \
+  pip config set global.index-url https://mirrors.aliyun.com/pypi/simple/ && \
+  pip config set install.trusted-host mirrors.aliyun.com && \
   pip install ./zh_core_web_md-3.4.0-py3-none-any.whl && \
   cd rasa_addons && \
   mkdir rasa_addons && \

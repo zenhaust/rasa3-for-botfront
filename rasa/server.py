@@ -1059,7 +1059,7 @@ def create_app(
         load_model_after = request.args.get("load_model_after", False)
         is_yaml_payload = request.headers.get("Content-type") == YAML_CONTENT_TYPE
         if is_yaml_payload:
-        training_payload = _training_payload_from_yaml(request, temporary_directory)
+            training_payload = _training_payload_from_yaml(request, temporary_directory)
         else:
             training_payload = _training_payload_from_json(request, temporary_directory)
             load_model_after = request.json.get("load_model_after", load_model_after)
