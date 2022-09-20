@@ -87,6 +87,12 @@ def run(args: argparse.Namespace) -> None:
         args.credentials, "credentials", DEFAULT_CREDENTIALS_PATH, True
     )
 
+    # botfront:start
+    logger.info("I'm DJYPanda!")
+    from rasa.utils.botfront import set_endpoints_credentials_args_from_remote
+    set_endpoints_credentials_args_from_remote(args)
+    # botfront:end
+
     if args.enable_api:
         if not args.remote_storage:
             args.model = _validate_model_path(args.model, "model", DEFAULT_MODELS_PATH)

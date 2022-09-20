@@ -218,6 +218,8 @@ class OutputChannel:
     async def send_response(self, recipient_id: Text, message: Dict[Text, Any]) -> None:
         """Send a message to the client."""
 
+        logger.debug(f"send_response: {message}") #djypanda
+
         if message.get("quick_replies"):
             await self.send_quick_replies(
                 recipient_id,

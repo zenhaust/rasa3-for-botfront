@@ -167,6 +167,9 @@ test: clean
 	# TF_CPP_MIN_LOG_LEVEL=2 sets C code log level for tensorflow to error suppressing lower log events
 	OMP_NUM_THREADS=1 TF_CPP_MIN_LOG_LEVEL=2 poetry run pytest tests -n $(JOBS) --cov rasa --ignore $(INTEGRATION_TEST_FOLDER)
 
+test-bf: clean
+	OMP_NUM_THREADS=1 poetry run pytest tests/core/botfront tests/addons -n $(JOBS) --no-cov
+
 test-integration:
 	# OMP_NUM_THREADS can improve overall performance using one thread by process (on tensorflow), avoiding overload
 	# TF_CPP_MIN_LOG_LEVEL=2 sets C code log level for tensorflow to error suppressing lower log events

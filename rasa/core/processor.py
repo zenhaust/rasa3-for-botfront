@@ -389,7 +389,12 @@ class MessageProcessor:
 
         if should_save_tracker:
             await self.save_tracker(tracker)
-
+        # botfront >
+        if message.output_channel.name() == 'bot_regression_test_output':
+            # BOTFRONT TEST CHANNEL: send user messages to the output channel
+            # if the output channel is the botfront output channel
+            message.output_channel.send_parsed_message(tracker.latest_message)
+        # < botfront
         return tracker
 
     async def execute_action(
