@@ -1,3 +1,8 @@
+### Before GO !!!
+This rasa fork can not run in standalone mode.<br>
+It's a part of [botfront-for-rasa3](https://github.com/djypanda/botfront-for-rasa3) project.<br>
+It requests configurations from botfront-for-rasa3 backend service. And also use botfront backend service as a response and track server.
+
 ### Run in docker
 
 1. Get the sourcecode
